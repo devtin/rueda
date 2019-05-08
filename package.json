@@ -1,0 +1,16 @@
+{
+  "name": "rueda",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Martin Rafael Gonzalez <tin@devtin.io>",
+  "license": "MIT",
+  "scripts": {
+    "build": "rollup js/rueda.src.js --file js/rueda.js --format iife --name rueda",
+    "build:live": "nodemon -w js/rueda.src.js -w js/lib --exec yarn build"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.0",
+    "rollup": "^1.11.3",
+    "zepto": "^1.2.0"
+  }
+}
