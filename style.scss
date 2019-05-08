@@ -1,22 +1,14 @@
 body {
+  font-family: Arial, sans-serif;
   margin: 0;
   width: 100%;
+  background-color: #c2c2c2;
 }
 
 .container {
   width: 100%;
-  background-color: #c2c2c2;
-  z-index: -10;
+  // z-index: -10;
   height: auto;
-}
-
-.rueda {
-  position: relative;
-  width: 32rem;
-  height: 1100px;
-  top: 120px;
-  left: 500px;
-  z-index: 2;
 }
 
 svg {
@@ -25,8 +17,14 @@ svg {
 
 .dots {
   position: absolute;
-  top: 110px;
-  left: 200px;
+  top: 100%;
+  left: -40px;
+  margin-top: -10px;
+
+  @media screen and (max-width: 512px) {
+    transform-origin: 0 -10;
+    transform: scale(.7);
+  }
 }
 
 .st3, .st4, .st5, .st6, .st7 {
@@ -39,15 +37,51 @@ svg {
   cursor: pointer;
 }
 
+.title-container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.box-title {
+  position: absolute;
+  border-radius: 0 0 25px 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  // z-index: -2;
+}
+
 .title {
+  box-sizing: border-box;
+  padding: 10px 20px;
+  font-size: 1.4em;
   position: relative;
-  height: 100px;
-  width: 700px;
-  background-color: #003A5D;
-  top: 0px;
-  left: 220px;
+  width: 90%;
+  color: #fff;
+  top: 0;
   border-radius: 0px 0px 25px 0px;
   z-index: 2;
+
+  .shadow {
+    content: '';
+    @extend .box-title;
+    left: 5px;
+    top: 5px;
+    background: #E29B1E;
+    z-index: -3;
+  }
+
+  .bg {
+    @extend .box-title;
+    z-index: -2;
+    left: 0;
+    top: 0;
+    background-color: #003A5D;
+  }
+
+  @media screen and (max-width: 720px) {
+    font-size: 1.1em;
+  }
 }
 
 .title img {
@@ -55,106 +89,175 @@ svg {
   padding-left: 20px;
 }
 
-.info_st3 {
-  position: absolute;
-  top: 120px;
-  left: 755px;
-  width: 550px;
-  height: 300px;
-  background-color: #FFFFFF;
-  border: 3px solid #2A9CD8;
-  opacity: 0;
-  text-align: center;
-}
-
-.info_st4 {
-  position: absolute;
-  top: 478px;
-  left: 904px;
-  width: 400px;
-  height: 280px;
-  background-color: #FFFFFF;
-  border: 3px solid #E29B1E;
-  opacity: 0;
-  text-align: center;
-}
-
-.info_st5 {
-  position: absolute;
-  top: 660px;
-  left: 624px;
-  width: 244px;
-  height: 280px;
-  background-color: #FFFFFF;
-  border: 3px solid #003A5D;
-  opacity: 0;
-  text-align: center;
-}
-
 .info_st5 img {
   margin-left: -7px;
   margin-top: 90px;
-}
-
-.info_st6 {
-  position: absolute;
-  top: 479px;
-  left: 215px;
-  width: 400px;
-  height: 280px;
-  background-color: #FFFFFF;
-  border: 3px solid #3AAA35;
-  opacity: 0;
-  text-align: center;
 }
 
 .info_st6 img {
   margin-left: -70px;
 }
 
-.info_st7 {
-  position: absolute;
-  top: 120px;
-  left: 215px;
-  width: 430px;
-  height: 300px;
-  background-color: #FFFFFF;
-  border: 3px solid #EB5E92;
-  opacity: 0;
-  text-align: center;
-}
-
 .info_st7 img {
   margin-left: -60px;
 }
 
-.references_1 {
-  position: absolute;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 9px;
-  width: 700px;
-  left: 200px;
-  top: 800px;
-  z-index: 1;
+.rueda-container {
+  width: 100%;
+  padding-top: 120px;
+  padding-bottom: 120px;
+  height: 920px;
+  overflow: auto;
+  z-index: 10;
+  position: relative;
+  -webkit-overflow-scrolling: touch;
+
+  @media screen and (max-width: 1024px) {
+    padding-top: 60px;
+    height: 800px;
+  }
+
+  .rueda-scroll {
+    min-width: 800px;
+
+    .rueda {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      transform-origin: 50% 0;
+
+      @media screen and (max-width: 1024px) {
+        top: 60px;
+        transform: scale(.7);
+      }
+
+      @media screen and (max-width: 512px) {
+        top: 20px;
+        transform: scale(.5);
+      }
+
+      .logo_rueda {
+        position: absolute;
+        top: 190px;
+        left: 50%;
+        margin-left: -93px;
+        z-index: 10;
+        pointer-events: none;
+      }
+
+      .invert-x {
+        left: auto;
+        right: 50%;
+      }
+
+      .invert-y {
+        top: auto;
+        bottom: 50%;
+      }
+
+      .info {
+        transition: .3s opacity ease-out;
+        opacity: 0;
+        pointer-events: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: -1;
+        background-color: #FFFFFF;
+        text-align: center;
+
+        &.on {
+          opacity: 1;
+          pointer-events: all;
+        }
+
+        &.i-evidencia-clinica {
+          width: 550px;
+          height: 300px;
+          border: 3px solid #2A9CD8;
+          margin-top: -380px;
+        }
+
+        &.i-reduccion-costo {
+          margin-left: 180px;
+          width: 400px;
+          height: 280px;
+          border: 3px solid #E29B1E;
+        }
+
+        &.i-mejor-dispositivo {
+          width: 244px;
+          height: 280px;
+          border: 3px solid #003A5D;
+          margin: 204px 0 0 -127px;
+        }
+
+        &.i-gold {
+          @extend .invert-x;
+          width: 400px;
+          height: 280px;
+          border: 3px solid #3AAA35;
+          margin: 2px 180px 0 0;
+        }
+
+        &.i-costo-efectividad {
+          @extend .invert-x;
+          @extend .invert-y;
+          width: 430px;
+          height: 300px;
+          border: 3px solid #EB5E92;
+          margin: 0px 113px 84px 0;
+        }
+      }
+    }
+  }
 }
 
-.references_2 {
-  position: absolute;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 9px;
-  width: 400px;
-  left: 1000px;
-  top: 800px;
-  z-index: 1;
+.references {
+  font-size: .5em;
+  color: #333;
+  margin-top: -400px;
+
+  .reference {
+    width: 50%;
+    box-sizing: border-box;
+    padding: 20px 120px;
+    float: left;
+
+    @media screen and (max-width: 512px) {
+      float: none;
+      width: 100%;
+      padding: 20px;
+    }
+  }
 }
 
-.logo_rueda {
-  position: absolute;
-  top: 395px;
-  left: 660px;
-  z-index: 50;
+.svg {
+  position: relative;
+  margin: 0 auto;
+  width: 540px;
+  display: block;
+
+  * {
+    pointer-events: none;
+  }
+
+  .trigger {
+    pointer-events: all;
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+    &.on {
+      transition: 0.2s transform ease-in-out;
+      transform: scale(1.13);
+    }
+  }
 }
 
+/*
+svg portion of code
+todo: replace or remove when changing svg
+ */
 #rueda {
   .st0 {
     fill: none;
