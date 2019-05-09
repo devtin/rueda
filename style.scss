@@ -107,10 +107,12 @@ svg {
   padding-top: 120px;
   padding-bottom: 120px;
   height: 920px;
-  overflow: auto;
   z-index: 10;
   position: relative;
-  -webkit-overflow-scrolling: touch;
+  overflow: hidden;
+
+  // -webkit-overflow-scrolling: touch;
+
 
   @media screen and (max-width: 1024px) {
     padding-top: 60px;

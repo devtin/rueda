@@ -2,12 +2,19 @@ import { scrollLeftTo } from './lib/scroll-ele-to.src.js'
 
 let lastOpened
 
+function getViewport() {
+  return {
+    width: Math.max(document.documentElement.clientWidth, window.innerWidth || 0),
+    height: Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
+  }
+}
+
 const ruedaContainer = document.querySelector('.rueda-container')
 const ruedaScroll = document.querySelector('.rueda-scroll')
 
-const getCombo = feature => {
-  const info = document.querySelector(`.rueda .info.${ lastOpened }`)
-  const path = document.querySelector(`.svg path.${ lastOpened }`)
+const getCombo = (feature = lastOpened) => {
+  const info = document.querySelector(`.rueda .info.${ feature }`)
+  const path = document.querySelector(`.svg path.${ feature }`)
 
   return { info, path }
 }
@@ -24,7 +31,7 @@ function closeLastOpened () {
     return
   }
 
-  const { info, path } = getCombo(lastOpened)
+  const { info, path } = getCombo()
 
   info.classList.remove('on')
   path.classList.remove('on')
@@ -49,28 +56,11 @@ function closeLastOpened () {
     info.classList.add('on')
     path.classList.add('on')
 
-    const { width } = info.getBoundingClientRect()
-    const childOffset = {
-      top: info.offsetTop - ruedaScroll.offsetTop,
-      left: info.offsetLeft - ruedaScroll.offsetLeft
-    }
+    let _infoMiddle = info.getBoundingClientRect().left + (info.getBoundingClientRect().width / 2)
+    let _mustBe = getViewport().width / 2
+    const moveTo = ruedaContainer.scrollLeft - (_mustBe - _infoMiddle)
 
-    console.log({ childOffset })
-    console.log(`info.offsetWidth`, info.offsetWidth)
-    console.log(`window.screen.width`, window.screen.width)
-    console.log(`ruedaContainer.scrollLeft`, ruedaContainer.scrollLeft)
-
-    let _scrollLeftTo = childOffset.left
-    console.log({ _scrollLeftTo })
-
-    if (info.classList.contains('inv')) {
-      _scrollLeftTo -= width
-    }
-
-    console.log({ _scrollLeftTo })
-
-    // scroll handheld rueda
-    // scrollLeftTo(ruedaContainer, _scrollLeftTo)
+    scrollLeftTo(ruedaContainer, moveTo)
   }
 })
 
