@@ -2,7 +2,7 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   width: 100%;
-  background-color: #c2c2c2;
+  background-color: #C2C2C2;
 }
 
 .container {
@@ -20,21 +20,19 @@ svg {
   left: -40px;
   margin-top: -10px;
 }
-@media screen and (max-width: 512px) {
+
+@media screen and (max-width: 1024px) {
   .dots {
     transform-origin: 0 -10;
-    transform: scale(0.7);
+    transform: scale(0.6);
+    top: 30px;
   }
 }
 
 .st3, .st4, .st5, .st6, .st7 {
   cursor: pointer;
-  transition: transform 0.1s ease-in-out;
+  transition: transform 0.3s ease-in-out;
   transform-origin: 50% 50%;
-}
-
-.st8 {
-  cursor: pointer;
 }
 
 .title-container {
@@ -53,18 +51,18 @@ svg {
 .title {
   box-sizing: border-box;
   padding: 10px 20px;
-  font-size: 1.4em;
+  font-size: 1.2em;
   position: relative;
-  width: 90%;
+  width: 100%;
   color: #fff;
   top: 0;
-  border-radius: 0px 0px 25px 0px;
+  /* border-radius: 0px 0px 25px 0px; */
   z-index: 2;
 }
 .title .shadow {
   content: "";
-  left: 5px;
-  top: 5px;
+  left: 10px;
+  top: 10px;
   background: #E29B1E;
   z-index: -3;
 }
@@ -76,7 +74,13 @@ svg {
 }
 @media screen and (max-width: 720px) {
   .title {
-    font-size: 1.1em;
+    font-size: .2em;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .dots {
+    display: none;
   }
 }
 
@@ -110,7 +114,7 @@ svg {
 }
 @media screen and (max-width: 1024px) {
   .rueda-container {
-    padding-top: 60px;
+    padding-top: 30px;
     height: 800px;
   }
 }
@@ -125,13 +129,13 @@ svg {
 }
 @media screen and (max-width: 1024px) {
   .rueda-container .rueda-scroll .rueda {
-    top: 60px;
-    transform: scale(0.7);
+    top: 40px;
+    transform: scale(0.5);
   }
 }
 @media screen and (max-width: 512px) {
   .rueda-container .rueda-scroll .rueda {
-    top: 20px;
+    top: 40px;
     transform: scale(0.5);
   }
 }
@@ -170,12 +174,13 @@ svg {
   width: 550px;
   height: 300px;
   border: 3px solid #2A9CD8;
-  margin-top: -380px;
+  margin-top: -370px;
 }
 .rueda-container .rueda-scroll .rueda .info.i-reduccion-costo {
-  margin-left: 180px;
+  margin-left: 210px;
+  margin-top: 2px;
   width: 400px;
-  height: 280px;
+  height: 266px;
   border: 3px solid #E29B1E;
 }
 .rueda-container .rueda-scroll .rueda .info.i-mejor-dispositivo {
@@ -185,27 +190,29 @@ svg {
   margin: 204px 0 0 -127px;
 }
 .rueda-container .rueda-scroll .rueda .info.i-gold {
-  width: 400px;
+  width: 370px;
   height: 280px;
   border: 3px solid #3AAA35;
-  margin: 2px 180px 0 0;
+  margin: -1px 210px 0 0;
 }
 .rueda-container .rueda-scroll .rueda .info.i-costo-efectividad {
-  width: 430px;
-  height: 300px;
+  width: 440px;
+  height: 280px;
   border: 3px solid #EB5E92;
-  margin: 0px 113px 84px 0;
+  margin: 0px 112px 84px 0;
 }
 
 .references {
   font-size: 0.5em;
   color: #333;
   margin-top: -400px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .references .reference {
   width: 50%;
   box-sizing: border-box;
-  padding: 20px 120px;
   float: left;
 }
 @media screen and (max-width: 512px) {
@@ -273,7 +280,8 @@ todo: replace or remove when changing svg
   enable-background: new;
 }
 #rueda .st10 {
-  font-family: "Arial-BoldMT";
+  font-family: Arial-BoldMT, Arial, Helvetica, sans-serif;
+  /* font-family: "arial,Arial-BoldMT"; */
 }
 #rueda .st11 {
   font-size: 15px;
