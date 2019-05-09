@@ -7,7 +7,7 @@
   "scripts": {
     "build:js": "rollup -c rollup.config.js",
     "build:js:live": "rollup -c rollup.config.js -w js/*.src.js",
-    "build:css": "node-sass style.css --output-style compressed",
+    "build:css": "node-sass style.scss style.css --output-style compressed",
     "build:css:live": "node-sass -w style.scss style.css --output-style compressed",
     "build": "yarn build:js; yarn build:css",
     "dev": "light-server -s ./ -p 4000 -w \"js/*.js,*.css,*.html\" -o"
