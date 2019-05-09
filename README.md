@@ -1,24 +1,24 @@
 # Getting started
 
-Instalar `yarn`:
+Install [node.js](https://nodejs.org) then install project dependencies:
 
 ```sh
-$ brew install yarn
+$ npm install
 ```
 
-Tener node.js instalado e instalar dependencias del proyecto
+or if using [yarn](https://yarnpkg.com) (suggested)
 
 ```sh
 $ yarn
 ```
 
-# Replace svg
+# Replacing svg
 
-- Change `svg` class to `svg`.
+- Add `.svg` class to the `<svg>` element: `<svg class="svg"...>`
 
 # Build JS
 
-Editar archivos *.src.js. Luego:
+Edit *.src.js files, then just:
 
 ```sh
 $ yarn build
