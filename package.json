@@ -5,12 +5,22 @@
   "author": "Martin Rafael Gonzalez <tin@devtin.io>",
   "license": "MIT",
   "scripts": {
-    "build": "rollup js/rueda.src.js --file js/rueda.js --format iife --name rueda",
-    "build:live": "nodemon -w js/rueda.src.js -w js/lib --exec yarn build"
+    "build:js": "rollup -c rollup.config.js",
+    "build:js:live": "rollup -c rollup.config.js -w js/*.src.js",
+    "build:css": "node-sass style.css --output-style compressed",
+    "build:css:live": "node-sass -w style.scss style.css --output-style compressed",
+    "build": "yarn build:js; yarn build:css",
+    "dev": "light-server -s ./ -p 4000 -w \"js/*.js,*.css,*.html\" -o"
   },
   "devDependencies": {
+    "@babel/core": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "node-sass": "^4.12.0",
     "nodemon": "^1.19.0",
     "rollup": "^1.11.3",
+    "rollup-plugin-babel": "^4.3.2",
+    "rollup-plugin-node-resolve": "^4.2.3",
+    "rollup-plugin-uglify": "^6.0.2",
     "zepto": "^1.2.0"
   }
 }
