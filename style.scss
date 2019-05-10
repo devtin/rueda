@@ -219,13 +219,27 @@ svg {
   font-size: .5em;
   color: #333;
   margin-top: -400px;
-  max-width: 800px;
+  max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
+  background-color: red;
+  
+  .ref1 {
+    background-color:red;
+    width: 65%;
+    float: left;
 
-  .reference {
-    width: 50%;
-    box-sizing: border-box;
+    @media screen and (max-width: 512px) {
+      float: none;
+      width: 100%;
+      padding: 20px;
+    }
+  }
+
+  .ref2 {
+    background-color:red;
+    width: 35%;
+    // box-sizing: border-box;
     // padding: 20px 120px;
     float: left;
 
