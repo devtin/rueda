@@ -120,7 +120,7 @@ svg {
 
   @media screen and (max-width: 1024px) {
     padding-top: 30px;
-    height: 800px;
+    height: 700px;
   }
 
   .rueda-scroll {
@@ -133,7 +133,12 @@ svg {
       transform-origin: 50% 0;
 
       @media screen and (max-width: 1024px) {
-        top: 40px;
+        top: 55px;
+        transform: scale(.7);
+      }
+
+      @media screen and (max-width: 720px) {
+        top: 55px;
         transform: scale(.5);
       }
 
@@ -222,10 +227,8 @@ svg {
   max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
-  background-color: red;
   
   .ref1 {
-    background-color:red;
     width: 65%;
     float: left;
 
@@ -237,11 +240,8 @@ svg {
   }
 
   .ref2 {
-    background-color:red;
     width: 35%;
-    // box-sizing: border-box;
-    // padding: 20px 120px;
-    float: left;
+    float: right;
 
     @media screen and (max-width: 512px) {
       float: none;
