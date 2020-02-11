@@ -28,11 +28,15 @@ svg {
   }
 }
 
- .st3, .st4, .st5, .st6, .st7 {
-   cursor: pointer;
-   transition: transform .3s ease-in-out;
-   transform-origin: 50% 50%;
- }
+.st3,
+.st4,
+.st5,
+.st6,
+.st7 {
+  cursor: pointer;
+  transition: transform .3s ease-in-out;
+  transform-origin: 50% 50%;
+}
 
 .title-container {
   max-width: 700px;
@@ -93,19 +97,6 @@ svg {
   padding-left: 20px;
 }
 
-.info_st5 img {
-  margin-left: -7px;
-  margin-top: 90px;
-}
-
-.info_st6 img {
-  margin-left: -70px;
-}
-
-.info_st7 img {
-  margin-left: -60px;
-}
-
 .rueda-container {
   width: 100%;
   padding-top: 120px;
@@ -146,9 +137,10 @@ svg {
         position: absolute;
         top: 190px;
         left: 50%;
-        margin-left: -93px;
+        margin-left: -83px;
         z-index: 10;
         pointer-events: none;
+        height: 160px;
       }
 
       .invert-x {
@@ -177,43 +169,71 @@ svg {
           pointer-events: all;
         }
 
-        &.i-evidencia-clinica {
-          width: 550px;
+        &.i-reduccion {
+          width: 500px;
           height: 300px;
           border: 3px solid #2A9CD8;
-          margin-top: -370px;
+          margin-top: -390px;
         }
 
-        &.i-reduccion-costo {
+        &.i-reduccion img {
+          width: 400px;
+          margin-left: 70px;
+          margin-top: -10px;
+        }
+
+        &.i-evidencia-cardio {
           margin-left: 210px;
           margin-top: 2px;
           width: 400px;
           height: 266px;
-          border: 3px solid #E29B1E;
+          border: 3px solid #EB5E92;
         }
 
-        &.i-mejor-dispositivo {
+        &.i-evidencia-cardio img {
+          width: 320px;
+          margin-left: 20px;
+          margin-top: -5px;
+        }
+
+        &.i-breezhaler {
           width: 244px;
           height: 280px;
           border: 3px solid #003A5D;
           margin: 204px 0 0 -127px;
         }
 
-        &.i-gold {
-          @extend .invert-x;
-          width: 370px;
-          height: 280px;
-          border: 3px solid #3AAA35;
-          margin: -1px 210px 0 0;
+        &.i-breezhaler img {
+          margin-left: -3px;
+          margin-top: 90px;
+          width: 250px;
         }
 
-        &.i-costo-efectividad {
+        &.i-calidad-vida {
+          @extend .invert-x;
+          width: 370px;
+          height: 275px;
+          border: 3px solid #3AAA35;
+          margin: 3px 210px 0 0;
+        }
+
+        &.i-calidad-vida img {
+          margin-left: -70px;
+          width: 310px;
+        }
+
+        &.i-guias-gold {
           @extend .invert-x;
           @extend .invert-y;
           width: 440px;
           height: 280px;
-          border: 3px solid #EB5E92;
+          border: 3px solid #E29B1E;
           margin: 0 112px 84px 0;
+        }
+
+        &.i-guias-gold img {
+          margin-left: -60px;
+          width: 360px;
         }
       }
     }
@@ -224,10 +244,10 @@ svg {
   font-size: .5em;
   color: #333;
   margin-top: -400px;
-  max-width: 1000px;
+  max-width: 700px;
   margin-left: auto;
   margin-right: auto;
-  
+
   .ref1 {
     width: 65%;
     float: left;
@@ -298,7 +318,7 @@ todo: replace or remove when changing svg
   }
 
   .st4 {
-    fill: #E29B1E;
+    fill: #EB5E92;
   }
 
   .st5 {
@@ -310,7 +330,7 @@ todo: replace or remove when changing svg
   }
 
   .st7 {
-    fill: #EB5E92;
+    fill: #F39200;
   }
 
   .st8 {
@@ -318,19 +338,30 @@ todo: replace or remove when changing svg
   }
 
   .st9 {
-    enable-background: new;
+    font-family: 'Arial-BoldMT', Arial, sans-serif;
+    // enable-background: new;
   }
 
   .st10 {
-    font-family: 'Arial-BoldMT', Arial, sans-serif;
-    font-weight: bold;
+    font-size: 15px;
+    // font-family: 'Arial-BoldMT', Arial, sans-serif;
+    // font-weight: bold;
   }
 
   .st11 {
-    font-size: 15px;
+    font-size: 26px;
   }
 
   .st12 {
-    font-size: 20px;
+    enable-background: new;
+    // font-size: 20px;
+  }
+
+  .st13 {
+    font-size: 15px;
+  }
+
+  .st14 {
+    font-size: 15px;
   }
 }

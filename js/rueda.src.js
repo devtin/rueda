@@ -42,7 +42,7 @@ function closeLastOpened () {
   return closed
 }
 
-['i-evidencia-clinica', 'i-reduccion-costo', 'i-mejor-dispositivo', 'i-gold', 'i-costo-efectividad'].forEach(feature => {
+['i-reduccion', 'i-evidencia-cardio', 'i-breezhaler', 'i-calidad-vida', 'i-guias-gold'].forEach(feature => {
   document.querySelector(`.svg path.${ feature }`).onclick = function () {
     if (closeLastOpened() === feature) {
       centerRueda()

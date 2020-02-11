@@ -13,15 +13,15 @@
     "dev": "light-server -s ./ -p 4000 -w \"js/*.js,*.css,*.html\" -o"
   },
   "devDependencies": {
-    "@babel/core": "^7.4.4",
-    "@babel/preset-env": "^7.4.4",
-    "light-server": "^2.6.2",
-    "node-sass": "^4.12.0",
-    "nodemon": "^1.19.0",
-    "rollup": "^1.11.3",
-    "rollup-plugin-babel": "^4.3.2",
-    "rollup-plugin-node-resolve": "^4.2.3",
-    "rollup-plugin-uglify": "^6.0.2",
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
+    "light-server": "^2.6.4",
+    "node-sass": "^4.13.1",
+    "nodemon": "^2.0.2",
+    "rollup": "^1.31.0",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-uglify": "^6.0.4",
     "zepto": "^1.2.0"
   }
 }

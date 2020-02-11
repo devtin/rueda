@@ -20,11 +20,11 @@ $ yarn
 - Make sure clickable paths have their element class accordingly as below:
 
 ```
-<path class="stX trigger i-evidencia-clinica"...>
-<path class="stX trigger i-reduccion-costo"...>
-<path class="stX trigger i-mejor-dispositivo"...>
-<path class="stX trigger i-gold"...>
-<path class="stX trigger i-costo-efectividad"...>
+<path class="stX trigger i-reduccion"...>
+<path class="stX trigger i-evidencia-cardio"...>
+<path class="stX trigger i-breezhaler"...>
+<path class="stX trigger i-calidad-vida"...>
+<path class="stX trigger i-guias-gold"...>
 ```
 
 # Build JS
