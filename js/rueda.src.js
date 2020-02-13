@@ -30,6 +30,15 @@ function closeLastOpened () {
   if (!lastOpened) {
     return
   }
+  
+  if (lastOpened == 'i-breezhaler') {
+    
+    if (window.matchMedia('(max-width: 1024px)').matches) {
+      $('.rueda-container').css('height', '450px');
+    } else {
+      $('.rueda-container').css('height', '600px');
+    }
+  }
 
   const { info, path } = getCombo()
 
@@ -55,6 +64,15 @@ function closeLastOpened () {
 
     info.classList.add('on')
     path.classList.add('on')
+    
+    if(feature=='i-breezhaler') {
+      if (window.matchMedia('(max-width: 1024px)').matches) {
+        $('.rueda-container').css('height', '740px');
+      } else {
+        $('.rueda-container').css('height', '1100px');
+      }
+      
+    }
 
     let _infoMiddle = info.getBoundingClientRect().left + (info.getBoundingClientRect().width / 2)
     let _mustBe = getViewport().width / 2
@@ -65,3 +83,11 @@ function closeLastOpened () {
 })
 
 centerRueda(0)
+
+$(document).ready(function() {
+  $(".refimg2").click(function() {
+    
+    $(".refsec").toggle();
+    $(".ref_img img").toggleClass('color');
+  });
+})

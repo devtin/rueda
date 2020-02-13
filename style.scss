@@ -7,7 +7,6 @@ body {
 
 .container {
   width: 100%;
-  // z-index: -10;
   height: auto;
 }
 
@@ -49,7 +48,6 @@ svg {
   display: block;
   width: 100%;
   height: 100%;
-  // z-index: -2;
 }
 
 .title {
@@ -100,19 +98,14 @@ svg {
 .rueda-container {
   width: 100%;
   padding-top: 120px;
-  padding-bottom: 120px;
-  // margin-left: 20px;
-  height: 920px;
+  height: 600px;
   z-index: 10;
   position: relative;
   overflow: hidden;
 
-  // -webkit-overflow-scrolling: touch;
-
-
   @media screen and (max-width: 1024px) {
     padding-top: 30px;
-    height: 750px;
+    height: 450px;
   }
 
   .rueda-scroll {
@@ -157,6 +150,7 @@ svg {
       .info {
         transition: .3s opacity ease-out;
         opacity: 0;
+        display: none;
         pointer-events: none;
         position: absolute;
         top: 50%;
@@ -168,6 +162,7 @@ svg {
         &.on {
           opacity: 1;
           pointer-events: all;
+          display: block;
         }
 
         &.i-reduccion {
@@ -242,10 +237,41 @@ svg {
   }
 }
 
+.ref_img {
+  max-width: 700px;
+  position: relative;
+  height: 100px;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: right;
+  z-index: 50;
+
+  @media screen and (max-width: 512px) {
+    text-align: center;
+  }
+
+  img {
+    height: 60px;
+    padding-right: 100px;
+    cursor: pointer;
+    filter: grayscale(100%);
+
+    @media screen and (max-width: 512px) {
+      padding-right: 0;
+      text-align: center;
+    }
+
+    &.color {
+      filter: grayscale(0);
+    }
+  }
+}
+
 .references {
+  position: relative;
   max-width: 700px;
   height: 388px;
-  margin: -400px auto 30px auto;
+  margin: auto auto 30px auto;
   font-size: .5em;
   color: #333333;
 
@@ -260,7 +286,7 @@ svg {
       float: none;
       height: auto;
       width: 95%;
-      margin: 10px 10px auto 10px;
+      margin: -20px 10px auto 10px;
     }
   }
 
@@ -272,27 +298,13 @@ svg {
       float: none;
       width: 95%;
       text-align: justify;
-      margin: 40px 10px auto 10px;
+      margin: 10px 10px auto 10px;
     }
   }
 }
 
-.ref_img {
-  width: 100%;
-  text-align: center;
-  position: relative;
-  margin-top: -80px;
-
-}
-
-.ref_img img {
-  height: 60px;
-  margin-bottom: 20px;
-
-  @media screen and (max-width: 512px) {
-    margin-top: -80px;
-    margin-bottom: 80px;
-  }
+.refsec {
+  display: none;
 }
 
 .svg {
@@ -363,13 +375,10 @@ todo: replace or remove when changing svg
 
   .st9 {
     font-family: 'Arial-BoldMT', Arial, sans-serif;
-    // enable-background: new;
   }
 
   .st10 {
     font-size: 15px;
-    // font-family: 'Arial-BoldMT', Arial, sans-serif;
-    // font-weight: bold;
   }
 
   .st11 {
@@ -378,8 +387,6 @@ todo: replace or remove when changing svg
 
   .st12 {
     font-size: 15px;
-    // enable-background: new;
-    // font-size: 20px;
   }
 
   .st13 {
@@ -430,25 +437,38 @@ todo: replace or remove when changing svg
       margin-right: 10px;
     }
   }
+}
+
+.footer_endbar {
+  height: 2px;
+  background-color: #003A5D;
+  max-width: 700px;
+  margin: 0 auto;
 
   .info_footer {
     text-align: center;
-    padding-top: 30px;
+    padding-top: 20px;
     font-size: .5em;
+    height: 50px;
   }
 
   .info_imgs {
-    height: 100px;
-    margin-top: 80px;
+    height: 50px;
+    margin-top: 20px;
 
     img {
-      height: 60px;
+      height: 40px;
+
+      @media screen and (max-width: 512px) {
+        height: 30px;
+        padding-top: 10px;
+      }
     }
 
     .img1 {
       float: left;
 
-      @media screen and (max-width: 512px) {
+      @media screen and (max-width: 300px) {
         float: none;
         text-align: center;
 
@@ -461,7 +481,7 @@ todo: replace or remove when changing svg
     .img2 {
       float: right;
 
-      @media screen and (max-width: 512px) {
+      @media screen and (max-width: 300px) {
         float: none;
         text-align: center;
 
@@ -471,8 +491,11 @@ todo: replace or remove when changing svg
       }
     }
   }
-  .footer_endbar {
-    height: 30px;
-    background-color: #003A5D;
-  }
+}
+
+.footer_endbar2 {
+  height: 30px;
+  background-color: #003A5D;
+  max-width: 700px;
+  margin: 0 auto;
 }
