@@ -275,35 +275,34 @@ svg {
 .references {
   position: relative;
   max-width: 700px;
-  height: 388px;
-  margin: auto auto 30px auto;
+  height: 390px;
+  margin: 0 auto;
   font-size: .5em;
   color: #333333;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  margin-bottom: 20px;
+
+  @media screen and (max-width: 512px) {
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
 
   .ref1 {
-    float: left;
-    display: flex;
-    align-items: flex-end;
     width: 65%;
-    height: 100%;
+
 
     @media screen and (max-width: 512px) {
-      float: none;
-      height: auto;
-      width: 95%;
-      margin: -20px 10px auto 10px;
+      width: 100%;
     }
   }
 
   .ref2 {
     width: 35%;
-    float: right;
 
     @media screen and (max-width: 512px) {
-      float: none;
-      width: 95%;
-      text-align: justify;
-      margin: 10px 10px auto 10px;
+      width: 100%;
     }
   }
 }
