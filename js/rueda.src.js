@@ -85,6 +85,9 @@ function closeLastOpened () {
 })
 
 centerRueda(0)
+window.onresize = () => {
+  centerRueda()
+}
 
 $(document).ready(function () {
   $('.refimg2').click(function () {
