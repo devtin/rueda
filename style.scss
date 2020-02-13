@@ -105,6 +105,11 @@ svg {
 
   @media screen and (max-width: 1024px) {
     padding-top: 30px;
+    height: 380px;
+  }
+
+  @media screen and (min-width: 700px) and (max-width: 1024px) {
+    padding-top: 30px;
     height: 450px;
   }
 

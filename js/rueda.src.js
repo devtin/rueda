@@ -33,8 +33,10 @@ function closeLastOpened () {
   
   if (lastOpened == 'i-breezhaler') {
     
-    if (window.matchMedia('(max-width: 1024px)').matches) {
+    if (window.matchMedia('(min-width: 700px) and (max-width: 1024px').matches) {
       $('.rueda-container').css('height', '450px');
+    } else if (window.matchMedia('(max-width: 1024px)').matches) {
+      $('.rueda-container').css('height', '380px');
     } else {
       $('.rueda-container').css('height', '600px');
     }
@@ -66,12 +68,13 @@ function closeLastOpened () {
     path.classList.add('on')
     
     if(feature=='i-breezhaler') {
-      if (window.matchMedia('(max-width: 1024px)').matches) {
+      if (window.matchMedia('(min-width: 700px) and (max-width: 1024px').matches) {
         $('.rueda-container').css('height', '740px');
+      } else if (window.matchMedia('(max-width: 1024px)').matches) { 
+        $('.rueda-container').css('height', '600px');
       } else {
         $('.rueda-container').css('height', '1100px');
       }
-      
     }
 
     let _infoMiddle = info.getBoundingClientRect().left + (info.getBoundingClientRect().width / 2)
