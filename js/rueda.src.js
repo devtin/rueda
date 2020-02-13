@@ -2,7 +2,7 @@ import { scrollLeftTo } from './lib/scroll-ele-to.src.js'
 
 let lastOpened
 
-function getViewport() {
+function getViewport () {
   return {
     width: Math.max(document.documentElement.clientWidth, window.innerWidth || 0),
     height: Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
@@ -30,15 +30,14 @@ function closeLastOpened () {
   if (!lastOpened) {
     return
   }
-  
-  if (lastOpened == 'i-breezhaler') {
-    
+
+  if (lastOpened === 'i-breezhaler') {
     if (window.matchMedia('(min-width: 700px) and (max-width: 1024px').matches) {
-      $('.rueda-container').css('height', '450px');
+      $('.rueda-container').css('height', '450px')
     } else if (window.matchMedia('(max-width: 1024px)').matches) {
-      $('.rueda-container').css('height', '380px');
+      $('.rueda-container').css('height', '380px')
     } else {
-      $('.rueda-container').css('height', '600px');
+      $('.rueda-container').css('height', '600px')
     }
   }
 
@@ -66,14 +65,14 @@ function closeLastOpened () {
 
     info.classList.add('on')
     path.classList.add('on')
-    
-    if(feature=='i-breezhaler') {
+
+    if (feature === 'i-breezhaler') {
       if (window.matchMedia('(min-width: 700px) and (max-width: 1024px').matches) {
-        $('.rueda-container').css('height', '740px');
-      } else if (window.matchMedia('(max-width: 1024px)').matches) { 
-        $('.rueda-container').css('height', '600px');
+        $('.rueda-container').css('height', '740px')
+      } else if (window.matchMedia('(max-width: 1024px)').matches) {
+        $('.rueda-container').css('height', '600px')
       } else {
-        $('.rueda-container').css('height', '1100px');
+        $('.rueda-container').css('height', '1100px')
       }
     }
 
@@ -87,10 +86,10 @@ function closeLastOpened () {
 
 centerRueda(0)
 
-$(document).ready(function() {
-  $(".refimg2").click(function() {
-    
-    $(".refsec").toggle();
-    $(".ref_img img").toggleClass('color');
-  });
+$(document).ready(function () {
+  $('.refimg2').click(function () {
+
+    $('.refsec').toggle()
+    $('.ref_img img').toggleClass('color')
+  })
 })
