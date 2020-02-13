@@ -94,18 +94,15 @@ window.onresize = () => {
   centerRueda()
 }
 
-window.onload = () => {
-  // swipe
-  const rueda = new Hammer(document.querySelector('.rueda-container'))
-  rueda.on('swipe', function (ev) {
-    restart()
-  })
-}
+$(document).ready(function() {
+  document.querySelector('.logo_rueda').onclick = function () {
+    console.log('click');
+    document.querySelector('.hide').style = "display: block"
+  }
 
-$(document).ready(function () {
-  $('.refimg2').click(function () {
-
-    $('.refsec').toggle()
-    $('.ref_img img').toggleClass('color')
-  })
+  $(".refimg2").click(function() {
+    
+    $(".refsec").toggle();
+    $(".ref_img img").toggleClass('color');
+  });
 })
