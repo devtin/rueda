@@ -19,6 +19,11 @@ const getCombo = (feature = lastOpened) => {
   return { info, path }
 }
 
+function restart () {
+  closeLastOpened()
+  centerRueda()
+}
+
 function centerRueda (time = 300) {
   const diff = ruedaScroll.offsetWidth - ruedaContainer.offsetWidth
   if (diff > 0) {
@@ -87,6 +92,14 @@ function closeLastOpened () {
 centerRueda(0)
 window.onresize = () => {
   centerRueda()
+}
+
+window.onload = () => {
+  // swipe
+  const rueda = new Hammer(document.querySelector('.rueda-container'))
+  rueda.on('swipe', function (ev) {
+    restart()
+  })
 }
 
 $(document).ready(function () {
