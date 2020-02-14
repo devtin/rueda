@@ -2,6 +2,8 @@ import { scrollLeftTo } from './lib/scroll-ele-to.src.js'
 
 let lastOpened
 
+let myWidth = getViewport().width;
+
 function getViewport() {
   return {
     width: Math.max(document.documentElement.clientWidth, window.innerWidth || 0),
@@ -37,9 +39,15 @@ function closeLastOpened() {
   }
 
   if (lastOpened === 'i-breezhaler') {
-    if (window.matchMedia('(min-width: 700px) and (max-width: 1024px').matches) {
+    $('html, body').animate({
+      scrollTop: "0px"
+    }, 0);
+  }
+
+  if (lastOpened === 'i-breezhaler') {
+    if (myWidth >= 700 && myWidth <= 1024) {
       $('.rueda-container').css('height', '450px')
-    } else if (window.matchMedia('(max-width: 1024px)').matches) {
+    } else if (myWidth <= 1024) {
       $('.rueda-container').css('height', '380px')
     } else {
       $('.rueda-container').css('height', '600px')
@@ -57,6 +65,7 @@ function closeLastOpened() {
   return closed
 }
 
+
 ['i-reduccion', 'i-evidencia-cardio', 'i-breezhaler', 'i-calidad-vida', 'i-guias-gold'].forEach(feature => {
   document.querySelector(`.svg path.${feature}`).onclick = function () {
     if (closeLastOpened() === feature) {
@@ -72,11 +81,14 @@ function closeLastOpened() {
     path.classList.add('on')
 
     if (feature === 'i-breezhaler') {
-      if (window.matchMedia('(min-width: 700px) and (max-width: 1024px').matches) {
+      if (myWidth >= 700 && myWidth <= 1024) {
+       console.log('1')
         $('.rueda-container').css('height', '740px')
-      } else if (window.matchMedia('(max-width: 1024px)').matches) {
+      } else if (myWidth <= 1024) {
+        console.log('2')
         $('.rueda-container').css('height', '600px')
       } else {
+        console.log('3')
         $('.rueda-container').css('height', '1100px')
       }
     }
@@ -84,12 +96,19 @@ function closeLastOpened() {
     let _infoMiddle = info.getBoundingClientRect().left + (info.getBoundingClientRect().width / 2)
     let _mustBe = getViewport().width / 2
     const moveTo = ruedaContainer.scrollLeft - (_mustBe - _infoMiddle)
-
+    
     scrollLeftTo(ruedaContainer, moveTo)
+
+    if (feature === 'i-breezhaler') {
+      $('html, body').animate({
+        scrollTop: ($('.info_st5').offset().top) - 230
+      }, 300);
+    }
   }
 })
 
 centerRueda(0)
+
 window.onresize = () => {
   centerRueda()
 }
@@ -98,7 +117,7 @@ $(document).ready(function () {
 
   let num = $('.hide').length;
   let i = num
-  
+  let x = 0
   $('.logo_rueda').click(function () {
     closeLastOpened();
     centerRueda();
@@ -106,16 +125,20 @@ $(document).ready(function () {
       $('.hide').each(function (index) {
         var e = $(this);
 
-        if (e.is(":visible")) {
+        if (x == 1) {
           e.toggle();
         } else {
           setTimeout(function () {
             $(e).toggle();
             i--;
-            i==0 ? i=num : i=i
+            if(i==0) {
+              i=num;
+              x=1;
+            }
           }, 200 * index)
         }
       });
+      x=0;
     }
   });
 

@@ -30,6 +30,10 @@ export function scrollLeftTo (ele, to, duration = 300) {
   return scrollTo(ele, to, duration, 'scrollLeft')
 }
 
+export function scrollTopTo(ele, to, duration = 300) {
+  return scrollTo(ele, to, duration, 'scrollTop')
+}
+
 export function scrollEleToSrc (ele, to, duration = 300) {
   return scrollTo(ele, to, duration)
 }
