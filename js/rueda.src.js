@@ -115,6 +115,14 @@ $(document).ready(function () {
 
 });
 
+window.onload = () => {
+  // swipe
+  const rueda = new Hammer(document.querySelector('.rueda-container'))
+  rueda.on('swipe', function (ev) {
+    restart()
+  })
+}
+
 $(".refimg2").click(function () {
 
   $(".refsec").toggle();
