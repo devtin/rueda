@@ -96,21 +96,26 @@ window.onresize = () => {
 
 $(document).ready(function () {
 
-
-  $('.logo_rueda').click(function() {
+  let num = $('.hide').length;
+  let i = num
+  
+  $('.logo_rueda').click(function () {
     closeLastOpened();
-    $('.logo_rueda').off('click');
-    $('.hide').each(function (index) {
-      var e = $(this);
+    if (i == num) {
+      $('.hide').each(function (index) {
+        var e = $(this);
 
-      if (e.is(":visible")) {
-        e.toggle();
-      } else {
-        setTimeout(function () {
-          $(e).toggle();
-        }, 200 * index)
-      }
-    });
+        if (e.is(":visible")) {
+          e.toggle();
+        } else {
+          setTimeout(function () {
+            $(e).toggle();
+            i--;
+            i==0 ? i=num : i=i
+          }, 200 * index)
+        }
+      });
+    }
   });
 
 });
