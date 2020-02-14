@@ -2,7 +2,7 @@ import { scrollLeftTo } from './lib/scroll-ele-to.src.js'
 
 let lastOpened
 
-function getViewport () {
+function getViewport() {
   return {
     width: Math.max(document.documentElement.clientWidth, window.innerWidth || 0),
     height: Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
@@ -13,25 +13,25 @@ const ruedaContainer = document.querySelector('.rueda-container')
 const ruedaScroll = document.querySelector('.rueda-scroll')
 
 const getCombo = (feature = lastOpened) => {
-  const info = document.querySelector(`.rueda .info.${ feature }`)
-  const path = document.querySelector(`.svg path.${ feature }`)
+  const info = document.querySelector(`.rueda .info.${feature}`)
+  const path = document.querySelector(`.svg path.${feature}`)
 
   return { info, path }
 }
 
-function restart () {
+function restart() {
   closeLastOpened()
   centerRueda()
 }
 
-function centerRueda (time = 300) {
+function centerRueda(time = 300) {
   const diff = ruedaScroll.offsetWidth - ruedaContainer.offsetWidth
   if (diff > 0) {
     scrollLeftTo(ruedaContainer, diff / 2, time)
   }
 }
 
-function closeLastOpened () {
+function closeLastOpened() {
   if (!lastOpened) {
     return
   }
@@ -58,7 +58,7 @@ function closeLastOpened () {
 }
 
 ['i-reduccion', 'i-evidencia-cardio', 'i-breezhaler', 'i-calidad-vida', 'i-guias-gold'].forEach(feature => {
-  document.querySelector(`.svg path.${ feature }`).onclick = function () {
+  document.querySelector(`.svg path.${feature}`).onclick = function () {
     if (closeLastOpened() === feature) {
       centerRueda()
       return
@@ -94,15 +94,29 @@ window.onresize = () => {
   centerRueda()
 }
 
-$(document).ready(function() {
-  document.querySelector('.logo_rueda').onclick = function () {
-    console.log('click');
-    document.querySelector('.hide').style = "display: block"
-  }
+$(document).ready(function () {
 
-  $(".refimg2").click(function() {
-    
-    $(".refsec").toggle();
-    $(".ref_img img").toggleClass('color');
+
+  $('.logo_rueda').click(function() {
+    closeLastOpened();
+    $('.logo_rueda').off('click');
+    $('.hide').each(function (index) {
+      var e = $(this);
+
+      if (e.is(":visible")) {
+        e.toggle();
+      } else {
+        setTimeout(function () {
+          $(e).toggle();
+        }, 200 * index)
+      }
+    });
   });
-})
+
+});
+
+$(".refimg2").click(function () {
+
+  $(".refsec").toggle();
+  $(".ref_img img").toggleClass('color');
+});
