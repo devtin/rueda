@@ -2,6 +2,7 @@ import { scrollLeftTo } from './lib/scroll-ele-to.src.js'
 
 let lastOpened
 let myWidth = getViewport().width;
+let screenHeight = $(window).height();
 
 function getViewport() {
   return {
@@ -45,11 +46,11 @@ function closeLastOpened() {
 
   if (lastOpened === 'i-breezhaler') {
     if (myWidth >= 700 && myWidth <= 1024) {
-      $('.rueda-container').css('height', '450px')
+      $('.rueda-container').css('height', '360px')
     } else if (myWidth <= 1024) {
       $('.rueda-container').css('height', '380px')
     } else {
-      $('.rueda-container').css('height', '600px')
+      $('.rueda-container').css('height', '430px')
     }
   }
 
@@ -64,6 +65,20 @@ function closeLastOpened() {
   return closed
 }
 
+function scrollIntoView(feature = lastOpened) {
+  let myElem = document.querySelector(`.${feature} img`);
+  let extraH = 0
+  if (feature != 'i-breezhaler') {
+    extraH = 20
+  }
+
+  let elemBottom = myElem.getBoundingClientRect().bottom + $(window).scrollTop();
+  let elemScrollTo = elemBottom - screenHeight
+
+  $('html').animate({
+    scrollTop: (elemScrollTo + extraH)
+  }, 300);
+}
 
 ['i-reduccion', 'i-evidencia-cardio', 'i-breezhaler', 'i-calidad-vida', 'i-guias-gold'].forEach(feature => {
   document.querySelector(`.svg path.${feature}`).onclick = function () {
@@ -81,26 +96,21 @@ function closeLastOpened() {
 
     if (feature === 'i-breezhaler') {
       if (myWidth >= 700 && myWidth <= 1024) {
-        $('.rueda-container').css('height', '740px')
-      } else if (myWidth <= 1024) {
+        $('.rueda-container').css('height', '620px')
+      } else if (myWidth < 700) {
         $('.rueda-container').css('height', '600px')
       } else {
-        $('.rueda-container').css('height', '1100px')
+        $('.rueda-container').css('height', '750px')
       }
     }
 
     let _infoMiddle = info.getBoundingClientRect().left + (info.getBoundingClientRect().width / 2)
     let _mustBe = getViewport().width / 2
     const moveTo = ruedaContainer.scrollLeft - (_mustBe - _infoMiddle)
-    
+
     scrollLeftTo(ruedaContainer, moveTo)
 
-    if (feature === 'i-breezhaler') {
-      console.log('100')
-      $('html, body').animate({
-        scrollTop: ($('.info_st5').offset().top - 50) 
-      }, 300);
-    }
+    scrollIntoView(feature);
   }
 })
 
@@ -128,14 +138,14 @@ $(document).ready(function () {
           setTimeout(function () {
             $(e).toggle();
             i--;
-            if(i==0) {
-              i=num;
-              x=1;
+            if (i == 0) {
+              i = num;
+              x = 1;
             }
           }, 200 * index)
         }
       });
-      x=0;
+      x = 0;
     }
   });
 
@@ -153,4 +163,7 @@ $(".refimg2").click(function () {
 
   $(".refsec").toggle();
   $(".ref_img img").toggleClass('color');
+  $('html, body').animate({
+    scrollTop: ($('.refimg2').offset().top)
+  }, 300);
 });
