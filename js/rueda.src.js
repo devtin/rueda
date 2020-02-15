@@ -1,7 +1,6 @@
 import { scrollLeftTo } from './lib/scroll-ele-to.src.js'
 
 let lastOpened
-
 let myWidth = getViewport().width;
 
 function getViewport() {
@@ -82,13 +81,10 @@ function closeLastOpened() {
 
     if (feature === 'i-breezhaler') {
       if (myWidth >= 700 && myWidth <= 1024) {
-       console.log('1')
         $('.rueda-container').css('height', '740px')
       } else if (myWidth <= 1024) {
-        console.log('2')
         $('.rueda-container').css('height', '600px')
       } else {
-        console.log('3')
         $('.rueda-container').css('height', '1100px')
       }
     }
@@ -100,8 +96,9 @@ function closeLastOpened() {
     scrollLeftTo(ruedaContainer, moveTo)
 
     if (feature === 'i-breezhaler') {
+      console.log('100')
       $('html, body').animate({
-        scrollTop: ($('.info_st5').offset().top) - 230
+        scrollTop: ($('.info_st5').offset().top - 50) 
       }, 300);
     }
   }
